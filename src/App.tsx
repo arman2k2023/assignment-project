@@ -5,8 +5,12 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechnologyList from "./Technology/TechnologyList";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
+  const [stack, setStack] = useState<Technology[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,12 +25,20 @@ function App() {
   return (
     <>
       <Navbar />
+      <ToastContainer />
+
       <Hero />
 
       {loading ? (
-        <p className="py-10 text-center">Loading...</p>
+        <p className="py-10 text-center">
+          Loading...
+        </p>
       ) : (
-        <TechnologyList technologies={technologies} />
+        <TechnologyList
+          technologies={technologies}
+          stack={stack}
+          setStack={setStack}
+        />
       )}
     </>
   );

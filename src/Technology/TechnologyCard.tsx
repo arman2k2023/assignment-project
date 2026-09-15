@@ -1,13 +1,40 @@
+import type { Dispatch, SetStateAction } from "react";
 import type { Technology } from "../types/technology";
+import { toast } from "react-toastify";
 
 interface TechnologyCardProps {
   technology: Technology;
+  stack: Technology[];
+  setStack: Dispatch<SetStateAction<Technology[]>>;
 }
 
-function TechnologyCard({ technology }: TechnologyCardProps) {
+function TechnologyCard({
+  technology,
+  stack,
+  setStack,
+}: TechnologyCardProps) {
+
+  const handleAddToStack = () => {
+    const alreadyAdded = stack.some(
+      (item) => item.id === technology.id
+    );
+
+    if (alreadyAdded) {
+      toast.warning(`${technology.name} is already in your stack!`);
+      return;
+    }
+
+    setStack([...stack, technology]);
+    toast.success(`${technology.name} added to your stack!`);
+  };
+
+  const isAdded = stack.some(
+    (item) => item.id === technology.id
+  );
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-      
+
       {/* Icon + Badge */}
       <div className="flex items-start justify-between">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-50">
@@ -35,6 +62,7 @@ function TechnologyCard({ technology }: TechnologyCardProps) {
 
       {/* Category + Difficulty + Rating */}
       <div className="mt-4 flex items-center gap-2">
+
         <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
           {technology.category}
         </span>
@@ -47,12 +75,21 @@ function TechnologyCard({ technology }: TechnologyCardProps) {
           <span>★</span>
           <span>{technology.rating}</span>
         </span>
+
       </div>
 
-      {/* Add to Stack Button */}
-      <button className="gradient-button mt-4 w-full rounded-xl px-4 py-3 font-semibold text-white">
-        Add to Stack
+      {/* Add Button */}
+      <button
+        onClick={handleAddToStack}
+        disabled={isAdded}
+        className={`mt-4 w-full rounded-xl px-4 py-3 font-semibold text-white ${isAdded
+            ? "cursor-not-allowed bg-gray-400"
+            : "gradient-button"
+          }`}
+      >
+        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
       </button>
+
     </div>
   );
 }
