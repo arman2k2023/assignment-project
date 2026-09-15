@@ -1,12 +1,18 @@
-import './App.css'
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+
+
 
 function App() {
-
   return (
     <>
-      <h1 className='text-4xl font-bold text-blue-600'>New Project</h1>
+      <Navbar />
+      <Hero />
+
+    
+      
     </>
-  )
+  );
 }
 
-export default App
+export default App;
