@@ -25,20 +25,19 @@ function TechnologyList({
             {/* Section Heading */}
             <div className="mb-8">
               <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-                Explore{" "}
+                Explore The{" "}
                 <span className="brand-gradient">
                   Technologies
                 </span>
               </h2>
 
               <p className="mt-3 max-w-2xl text-gray-500">
-                Explore the technologies and tools you need to build
-                modern, scalable, and powerful applications.
+                Pick one technology per category to build your ideal stack.
               </p>
             </div>
 
             {/* Technology Cards */}
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {technologies.map((technology) => (
                 <TechnologyCard
                   key={technology.id}
@@ -51,9 +50,9 @@ function TechnologyList({
           </div>
 
           {/* Right Side - Your Stack */}
-          <YourStack 
-          stack={stack}
-          setStack={setStack} 
+          <YourStack
+            stack={stack}
+            setStack={setStack}
           />
 
         </div>

@@ -16,8 +16,7 @@ function Footer() {
             />
 
             <p className="mt-4 max-w-xs text-sm leading-6 text-gray-500">
-              Discover the technologies and tools you need to
-              build modern web applications.
+              Curated tools, technologies and resources for developers building modern software.
             </p>
 
             {/* Social Links */}
@@ -56,6 +55,13 @@ function Footer() {
                 href="#"
                 className="block text-sm text-gray-500 hover:text-orange-500"
               >
+                Home
+              </a>
+
+              <a
+                href="#"
+                className="block text-sm text-gray-500 hover:text-orange-500"
+              >
                 Technologies
               </a>
 
@@ -64,13 +70,6 @@ function Footer() {
                 className="block text-sm text-gray-500 hover:text-orange-500"
               >
                 Projects
-              </a>
-
-              <a
-                href="#"
-                className="block text-sm text-gray-500 hover:text-orange-500"
-              >
-                Features
               </a>
             </div>
           </div>

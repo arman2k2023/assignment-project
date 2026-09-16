@@ -83,8 +83,8 @@ function TechnologyCard({
         onClick={handleAddToStack}
         disabled={isAdded}
         className={`mt-4 w-full rounded-xl px-4 py-3 font-semibold text-white ${isAdded
-            ? "cursor-not-allowed bg-gray-400"
-            : "gradient-button"
+          ? "cursor-not-allowed bg-gray-400"
+          : "gradient-button"
           }`}
       >
         {isAdded ? "✓ Added to Stack" : "Add to Stack"}
